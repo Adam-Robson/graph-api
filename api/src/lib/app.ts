@@ -1,9 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import morgan from 'morgan';
-
-import { fileURLToPath } from 'url';
-
+import { fileURLToPath } from 'node:url';
 import express, { Request, Response } from 'express';
 import usersRouter from './routes/users';
 import errorHandler from './middlewares/error';
@@ -12,7 +10,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-const accessLogStream = fs.createWriteStream(path.join(__dirname, '/logs/access.log'), { flags: 'a' });
+const logDirectory = path.join(__dirname, '/logs');
+
+if (!fs.existsSync(logDirectory)) {
+  fs.mkdirSync(logDirectory, { recursive: true });
+}
+
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, '/logs/access.log'),
+  { flags: 'a' }
+);
 
 app.use(morgan('combined', { stream: accessLogStream }));
 

@@ -35,6 +35,7 @@
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "eslint-webpack-plugin": "latest",
+    "express-rate-limit": "^7.4.1",
     "nodemon": "latest",
     "prettier": "latest",
     "ts-loader": "latest",
