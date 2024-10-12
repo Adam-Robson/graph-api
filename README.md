@@ -9,7 +9,7 @@ fetch and display user data.
 1. Fetch and display users from Microsoft Graph API.
 2. Secure authentication using Azure AD client credentials.
 3. CORS-enabled backend for seamless API communication with the frontend.
-4. Full-stack deployment to Azure App Service.
+4. This application is not deployed to Azure App Service.
 
 ## Running the Project Locally
 
@@ -20,7 +20,8 @@ The following environment variables are required for the backend:
 - AZURE_TENANT_ID - Your Azure tenant ID.
 - AZURE_CLIENT_ID - The client ID of your Azure AD app registration.
 - AZURE_CLIENT_SECRET - The client secret for the Azure AD app registration.
-- AZURE_SCOPE - The scope for accessing Microsoft Graph API, typically <https://graph.microsoft.com/.default>.
+- AZURE_SCOPE - The scope for accessing Microsoft Graph API, typically
+  `<https://graph.microsoft.com/.default>`.
 
 ### Prerequisites
 
@@ -64,7 +65,4 @@ Webpack should open the browser window for you.
 
 ## Feedback
 
-I welcome feedback: 1.) that is constructive, 2.) that helps the participants grow,
-and 3.) that is communicated with a minimum "this-bar-might-be-too-low" amount of respect.
-
-I also welcome questions! Feel free to pass on those. I am a collector.
+I welcome questions! Feel free to pass on those. I am a collector.
