@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/21bfafea-8b3f-4549-b345-c37af8ad628a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/graphgraphgraph",
+  "appService.deploySubpath": "."
+}
