@@ -4,9 +4,10 @@ import { getUserData } from '../utils/client';
 const router = Router();
 
 router.get(
-  '/api/users',
+  '/',
   async (req: Request, res: Response): Promise<void> => {
     try {
+      console.info(`${req.method} ${req.url} ${req.body}`);
       const users = await getUserData();
       res.json(users);
     } catch (err) {

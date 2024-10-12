@@ -6,7 +6,9 @@ import webpack from 'webpack';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const env = dotenv.config().parsed;
+
 const envKeys = Object.keys(env).reduce((prev, next) => {
+  console.info(`process.env.${next}: ${JSON.stringify(env[next])}`);
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
   return prev;
 }, {});
@@ -15,14 +17,14 @@ export default {
   target: 'node',
   mode: 'development',
   entry: {
-    server: './src/server.ts',
+    server: './src/server.ts'
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
-  devtool: 'source-map', 
+  devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.js']
   },
@@ -31,16 +33,17 @@ export default {
       {
         test: /\.ts$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       }
     ]
   },
   externals: {
-    express: 'commonjs express',
+    express: 'commonjs express'
   },
-  plugins: [ 
-  new webpack.DefinePlugin(envKeys),
-  new ESLintWebpackPlugin({
-    configType: 'flat'
-  })],
+  plugins: [
+    new webpack.DefinePlugin(envKeys),
+    new ESLintWebpackPlugin({
+      configType: 'flat'
+    })
+  ]
 };

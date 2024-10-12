@@ -17,6 +17,7 @@
     "@azure/msal-node": "latest",
     "@microsoft/microsoft-graph-client": "latest",
     "body-parser": "latest",
+    "cors": "^2.8.5",
     "dotenv": "latest",
     "express": "latest",
     "isomorphic-fetch": "latest",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "latest",
+    "@types/cors": "^2.8.17",
     "@types/eslint-config-prettier": "latest",
     "@types/express": "latest",
     "@types/morgan": "latest",
@@ -35,6 +37,7 @@
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "eslint-webpack-plugin": "latest",
+    "express-rate-limit": "^7.4.1",
     "nodemon": "latest",
     "prettier": "latest",
     "ts-loader": "latest",

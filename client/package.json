@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint",
     "build": "tsc && webpack --mode production",
-    "dev": "npm run build &&webpack serve --mode development",
+    "dev": "npm run build && webpack serve --mode development",
     "test": "jest"
   },
   "keywords": [],
