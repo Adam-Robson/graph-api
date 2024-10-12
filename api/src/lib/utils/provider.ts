@@ -5,6 +5,7 @@ dotenv.config();
 const tenant = process.env.AZURE_TENANT_ID ?? '';
 const client = process.env.AZURE_CLIENT_ID ?? '';
 const secret = process.env.AZURE_CLIENT_SECRET ?? '';
+const scope = process.env.AZURE_SCOPE ?? '';
 
 const msalConfig = {
   auth: {
@@ -15,7 +16,6 @@ const msalConfig = {
 };
 
 const cca = new ConfidentialClientApplication(msalConfig);
-const scope = process.env.AZURE_SCOPE ?? '';
 
 export async function getAccessToken(): Promise<string> {
   try {
