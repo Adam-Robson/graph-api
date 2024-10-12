@@ -11,7 +11,9 @@ fetch and display user data.
 3. CORS-enabled backend for seamless API communication with the frontend.
 4. Full-stack deployment to Azure App Service.
 
-## Environment Variables
+## Running the Project Locally
+
+### Environment Variables
 
 The following environment variables are required for the backend:
 
@@ -20,22 +22,11 @@ The following environment variables are required for the backend:
 - AZURE_CLIENT_SECRET - The client secret for the Azure AD app registration.
 - AZURE_SCOPE - The scope for accessing Microsoft Graph API, typically <https://graph.microsoft.com/.default>.
 
-Example .env file:
-
-AZURE_TENANT_ID=`<azure-tenant-id>`
-AZURE_CLIENT_ID=`<azure-client-id>`
-AZURE_CLIENT_SECRET=`<azure-client-secret>`
-AZURE_SCOPE=`https://graph.microsoft.com/.default`
-
-Running the Project Locally
-
-Prerequisites
+### Prerequisites
 
 - Node.js (v14+)
 - npm or yarn
 - Azure AD app registration with required API permissions (e.g., User.Read.All)
-
-## Steps to Run Locally
 
 ### Clone the repository
 
@@ -44,7 +35,7 @@ cd `<repository-directory>`
 
 ### Install dependencies
 
-#### For both frontend and backend
+#### Run the install in both client and API
 
 ```sh
 npm install
@@ -55,21 +46,25 @@ npm install
 Create a `.env` file in the api directory and populate it with the environment
 variables shown above.
 
-### Run the backend
+### Run the backend (localhost:7890)
 
 ```sh
 cd api
 npm run dev
 ```
 
-### Run the frontend
+### Run the frontend (localhost:7891)
 
 ```sh
 cd client
 npm start
 ```
 
-### Access the app
+Webpack should open the browser window for you.
 
-Open your browser and navigate to `http://localhost:7890` for the frontend, and
-`http://localhost:7891/api/users` for the backend API.
+## Feedback
+
+I welcome feedback: 1.) that is constructive, 2.) that helps the participants grow,
+and 3.) that is communicated with a minimum "this-bar-might-be-too-low" amount of respect.
+
+I also welcome questions! Feel free to pass on those. I am a collector.
