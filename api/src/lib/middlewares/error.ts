@@ -21,9 +21,13 @@ export default function errorHandler(
   res: Response,
   next: NextFunction
 ): void {
-  // Log the error for debugging
-  console.error(`Error occurred at ${req.method} ${req.url}:`, err);
-
+  // Remove in production, for development purposes only
+  console.info('This is the error, displayed for debugging');
+  console.info(err);
+  console.info('This is the request, displayed for debugging');
+  console.info(req);
+  console.info('This is the response, displayed for debugging');
+  console.info(res);
   if (err instanceof Error) {
     if (
       'httpStatusCode' in err &&
