@@ -4,7 +4,8 @@
   "main": "./src/server.ts",
   "type": "module",
   "scripts": {
-    "lint": "eslint",
+    "lint": "biome check",
+    "format": "biome format",
     "build": "tsc && webpack --mode development",
     "dev": "npm run build && nodemon --exec tsx src/server.ts",
     "start": "node dist/server.js"
@@ -14,36 +15,23 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@azure/msal-node": "latest",
     "@microsoft/microsoft-graph-client": "latest",
-    "body-parser": "latest",
     "cors": "^2.8.5",
     "dotenv": "latest",
     "express": "latest",
-    "isomorphic-fetch": "latest",
-    "morgan": "latest",
-    "node-fetch": "latest"
+    "morgan": "latest"
   },
   "devDependencies": {
-    "@eslint/js": "latest",
+    "@biomejs/biome": "2.4.4",
     "@types/cors": "^2.8.17",
-    "@types/eslint-config-prettier": "latest",
-    "@types/express": "latest",
+    "@types/express": "5.0.6",
     "@types/morgan": "latest",
     "@types/node": "latest",
     "@types/nodemon": "latest",
-    "@typescript-eslint/parser": "latest",
-    "eslint": "latest",
-    "eslint-config-prettier": "latest",
-    "eslint-plugin-prettier": "latest",
-    "eslint-webpack-plugin": "latest",
-    "express-rate-limit": "^7.4.1",
     "nodemon": "latest",
-    "prettier": "latest",
     "ts-loader": "latest",
     "tsx": "latest",
     "typescript": "latest",
-    "typescript-eslint": "latest",
     "webpack": "latest",
     "webpack-cli": "latest"
   }

@@ -1,7 +1,6 @@
+import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import ESLintWebpackPlugin from 'eslint-webpack-plugin';
-import dotenv from 'dotenv';
 import webpack from 'webpack';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -17,33 +16,30 @@ export default {
   target: 'node',
   mode: 'development',
   entry: {
-    server: './src/server.ts'
+    server: './src/server.ts',
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       }
     ]
   },
   externals: {
-    express: 'commonjs express'
+    express: 'commonjs express',
   },
   plugins: [
     new webpack.DefinePlugin(envKeys),
-    new ESLintWebpackPlugin({
-      configType: 'flat'
-    })
-  ]
+  ],
 };
