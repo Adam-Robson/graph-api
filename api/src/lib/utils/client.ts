@@ -2,7 +2,6 @@ import {
   AuthProviderCallback,
   Client
 } from '@microsoft/microsoft-graph-client';
-import 'isomorphic-fetch';
 import { getAccessToken } from './provider';
 
 interface GraphUser {
