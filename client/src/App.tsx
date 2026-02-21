@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 interface User {
   id: string;
@@ -15,17 +14,21 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get<User[]>(
-          'http://localhost:7891/api/users'
-        );
-        console.info('result', JSON.stringify(result.data, null, 2));
-        setUsers(result.data);
-        setUsers(result.data);
+        const response = await fetch('http://localhost:7891/api/users', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = (await response.json()) as User[];
+        console.info('result', JSON.stringify(data, null, 2));
+        setUsers(data);
       } catch (err) {
         if (err instanceof Error) {
-          console.error(
-            `Error fetching data from API: ${err.message}`
-          );
+          console.error(`Error fetching data from API: ${err.message}`);
           setError(err.message);
         } else {
           console.error('Unknown error fetching data from API');
@@ -34,7 +37,7 @@ export default function App() {
       }
     }
 
-    fetchData().catch(err => console.error(err));
+    fetchData().catch((err) => console.error(err));
   }, []);
 
   return (
@@ -45,15 +48,15 @@ export default function App() {
           <div>Error: {error}</div>
         ) : (
           <pre>{JSON.stringify(users, null, 2)}</pre>
-        )}</>
+        )}
+      </>
       {error ? (
         <div>Error: {error}</div>
       ) : (
         <ul>
           {users.map((user: User) => (
             <li key={user.id}>
-              {user.displayName} (
-              {user.mail ?? user.userPrincipalName})
+              {user.displayName} ({user.mail ?? user.userPrincipalName})
             </li>
           ))}
         </ul>

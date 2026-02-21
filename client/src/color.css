@@ -66,8 +66,6 @@
     --accent-800: #2d3039;
     --accent-900: #17181c;
     --accent-950: #0b0c0e;
-
-
   }
 }
 @media (prefers-color-scheme: dark) {

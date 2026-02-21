@@ -1,8 +1,7 @@
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import ESLintWebpackPlugin from 'eslint-webpack-plugin';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -15,7 +14,7 @@ export default {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     clean: true,
-    publicPath: '/'
+    publicPath: '/',
   },
   devServer: {
     historyApiFallback: true,
@@ -29,9 +28,9 @@ export default {
         target: 'http://localhost:7891/users',
         changeOrigin: true,
         pathRewrite: { '^/api': '' },
-        secure: false
-      }
-    ]
+        secure: false,
+      },
+    ],
   },
   module: {
     rules: [
@@ -39,15 +38,15 @@ export default {
         test:/\.(j|t)sx?$/i,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
-        }
+          loader: 'ts-loader',
+        },
       },
       {
         test: /\.css$/i,
         use: [
           'style-loader', 
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -56,39 +55,33 @@ export default {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            context: path.resolve(__dirname, 'src')
-          }
-        }
+            context: path.resolve(__dirname, 'src'),
+          },
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource'
-      }
-    ]
+        type: 'asset/resource',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'public/index.html',
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: 'public',
           globOptions: {
-            ignore: ['**/index.html']
+            ignore: ['**/index.html'],
           },
-          to: 'assets'
-        }
-      ]
+          to: 'assets',
+        },
+      ],
     }),
-    new ESLintWebpackPlugin({ 
-      context: path.resolve(__dirname, 'src'),
-      extensions: ['js', 'jsx', 'ts', 'tsx'],
-      exclude: 'node_modules',
-      configType: 'flat'
-    })
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 };
