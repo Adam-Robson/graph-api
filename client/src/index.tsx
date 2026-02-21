@@ -9,5 +9,5 @@ const root = document.getElementById('root');
 createRoot(root!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
